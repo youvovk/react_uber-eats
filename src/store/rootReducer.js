@@ -6,14 +6,28 @@ const initialStore = {
   error: null,
   restaurantData: null,
   openedModalWindow: false,
+  modalWindowUuid: '',
+  modalWindowData: null,
 };
 
 export function rootReducer(state = initialStore, action) {
   switch (action.type) {
+    case ACTION_TYPES.SAVE_MODAL_DATA: {
+      const { payload } = action;
+
+      return {
+        ...state,
+        modalWindowData: payload,
+      };
+    }
+
     case ACTION_TYPES.OPEN_MODAL_WINDOW: {
+      const { payload } = action;
+
       return {
         ...state,
         openedModalWindow: true,
+        modalWindowUuid: payload,
       };
     }
 

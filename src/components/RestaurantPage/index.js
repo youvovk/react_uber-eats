@@ -11,12 +11,10 @@ function mapState2Props(state) {
   };
 }
 
-const mapDispatch2Props = (dispatch) => {
-  return ({
-    loadRestaurant: uuid => dispatch(loadRestaurant(uuid)),
-    openModalWindow: () => dispatch(openModalWindow()),
-  });
-};
+const mapDispatch2Props = dispatch => ({
+  loadRestaurant: uuid => dispatch(loadRestaurant(uuid)),
+  openModalWindow: uuid => dispatch(openModalWindow(uuid)),
+});
 
 const Enhanced = connect(
   mapState2Props,

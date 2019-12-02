@@ -25,6 +25,7 @@ export class RestaurantPage extends Component {
   render() {
     const {
       openModalWindow,
+      restaurantData,
       restaurantData: {
       categories,
       title,
@@ -96,10 +97,11 @@ export class RestaurantPage extends Component {
                   <h2 className="restaurant-title">{item[1].title}</h2>
                   <div className="container">
                     {item[1].itemUuids.map((itemMenu) => {
-                      const foundItem = entitiesMapToArray.find(elem => elem[0] === itemMenu);
+                      const foundItem = entitiesMapToArray
+                        .find(elem => elem[0] === itemMenu);
 
                       return (
-                        <div className="item" onClick={() => openModalWindow()}>
+                        <div className="item" onClick={() => openModalWindow(foundItem[1].uuid)}>
                           <div className="item__left">
                             <h3 className="item__title">
                               {foundItem && foundItem[1].title}
@@ -108,12 +110,18 @@ export class RestaurantPage extends Component {
                               {foundItem && foundItem[1].description}
                             </p>
                             <p className="item__price">
-                              {`${priceBucket.length > 2 ? priceBucket.replace(/[^0-9]/, '') : priceBucket} ${foundItem && foundItem[1].price}`}
+                              {`${priceBucket.length > 2 ? priceBucket
+                                .replace(/[^0-9]/, '') : priceBucket} 
+                                ${foundItem && foundItem[1].price}`}
                             </p>
                           </div>
 
                           <div className="item-right">
-                            <img className="item__img" src={foundItem && foundItem[1].imageUrl} alt="" />
+                            <img
+                              className="item__img"
+                              src={foundItem && foundItem[1].imageUrl}
+                              alt=""
+                            />
                           </div>
                         </div>
                       );

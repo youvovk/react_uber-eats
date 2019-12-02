@@ -61,7 +61,10 @@
     width: 100%;
     height: 100px;
     padding: 22px 0 0 34px;
+
     font-size: 16px;
+    font-family: Roboto, serif;
+    
     outline: none;
     border: 2px solid #fff;
     border-bottom: 2px solid $color-gray-modal;
@@ -69,7 +72,6 @@
 
     &::placeholder {
       font-size: 14px;
-      font-family: Roboto, serif;
       color: $color-gray-modal;
     }
 

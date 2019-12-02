@@ -9,7 +9,7 @@ import {
   RestaurantPage,
 } from './components/RestaurantPage/index';
 
-import { ModalWindow } from './components/ModalWindow/ModalWindow';
+import { ModalWindow } from './components/ModalWindow/index';
 
 import './App.scss';
 

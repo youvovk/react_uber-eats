@@ -16,6 +16,23 @@ input {
   line-height: 1.5;
 }
 
+body {
+  &::-webkit-scrollbar { 
+    width: 5px; 
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-track-piece { 
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb { 
+    height: 50px; 
+    background-color: #666; 
+    border-radius: 3px;
+  }
+}
+
 input {
   border: none;
   background: transparent;

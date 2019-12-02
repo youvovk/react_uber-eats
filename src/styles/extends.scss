@@ -24,8 +24,16 @@
 
 %toggle {
   content: "";
-      width: 19px;
-      height: 2px;
-      position: absolute;
-      border-bottom: 2px solid #000;
+  width: 19px;
+  height: 2px;
+  position: absolute;
+  border-bottom: 2px solid #000;
+}
+
+%toggle-point {
+  content: "";
+  width: 11px;
+  height: 1px;
+  position: absolute;
+  border-bottom: 1px solid #000;
 }
