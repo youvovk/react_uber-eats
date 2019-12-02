@@ -23,11 +23,13 @@ export function rootReducer(state = initialStore, action) {
 
     case ACTION_TYPES.OPEN_MODAL_WINDOW: {
       const { payload, rule } = action;
+      const deletedModalData = rule ? state.modalWindowData : null;
 
       return {
         ...state,
         openedModalWindow: rule,
         modalWindowUuid: payload,
+        modalWindowData: deletedModalData,
       };
     }
 

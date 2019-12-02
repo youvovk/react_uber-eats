@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import './ModalWindowContent.scss';
 
 export const ModalWindowContent = ({ modalWindowData, openModalWindow }) => {
-    console.log(modalWindowData)
-
   const { 
     imageUrl,
     title,
