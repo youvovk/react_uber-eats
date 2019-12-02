@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { ModalWindowContent } from './ModalWindowContent';
+import { openModalWindow } from '../../store/actions';
 
 function mapState2Props(state) {
   return {
@@ -7,8 +8,13 @@ function mapState2Props(state) {
   };
 }
 
+const mapDispatch2Props = dispatch => ({
+  openModalWindow: (uuid, rule) => dispatch(openModalWindow(uuid, rule)),
+});
+
 const Enhanced = connect(
   mapState2Props,
+  mapDispatch2Props,
 )(ModalWindowContent);
 
 export { Enhanced as ModalWindowContent };

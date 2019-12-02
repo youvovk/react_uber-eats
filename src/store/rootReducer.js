@@ -22,11 +22,11 @@ export function rootReducer(state = initialStore, action) {
     }
 
     case ACTION_TYPES.OPEN_MODAL_WINDOW: {
-      const { payload } = action;
+      const { payload, rule } = action;
 
       return {
         ...state,
-        openedModalWindow: true,
+        openedModalWindow: rule,
         modalWindowUuid: payload,
       };
     }

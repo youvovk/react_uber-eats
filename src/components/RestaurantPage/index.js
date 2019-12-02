@@ -13,7 +13,7 @@ function mapState2Props(state) {
 
 const mapDispatch2Props = dispatch => ({
   loadRestaurant: uuid => dispatch(loadRestaurant(uuid)),
-  openModalWindow: uuid => dispatch(openModalWindow(uuid)),
+  openModalWindow: (uuid, rule) => dispatch(openModalWindow(uuid, rule)),
 });
 
 const Enhanced = connect(

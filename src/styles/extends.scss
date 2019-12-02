@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+%flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 %absolute-center {
   position: absolute;
   top: 0;
@@ -36,4 +41,11 @@
   height: 1px;
   position: absolute;
   border-bottom: 1px solid #000;
+}
+
+%toggle-circle {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  border-radius: 50%;
 }

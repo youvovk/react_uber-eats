@@ -8,9 +8,10 @@ export const ACTION_TYPES = {
   SAVE_MODAL_DATA: 'SAVE_MODAL_DATA',
 };
 
-export const openModalWindow = uuid => ({
+export const openModalWindow = (uuid, rule) => ({
   type: ACTION_TYPES.OPEN_MODAL_WINDOW,
   payload: uuid,
+  rule,
 });
 
 const saveModalData = data => ({

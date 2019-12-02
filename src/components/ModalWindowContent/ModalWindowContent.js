@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './ModalWindowContent.scss';
 
-export const ModalWindowContent = ({ modalWindowData }) => {
+export const ModalWindowContent = ({ modalWindowData, openModalWindow }) => {
     console.log(modalWindowData)
 
   const { 
@@ -22,6 +22,9 @@ export const ModalWindowContent = ({ modalWindowData }) => {
           alt="meal"
           className="modal-window__img"
         />
+
+        <div className="toggle__close" onClick={() => openModalWindow(null, false)} />
+
         <div className="menu__title-wrapper">
           <h2 className="menu__title">
             {title}
@@ -69,7 +72,7 @@ export const ModalWindowContent = ({ modalWindowData }) => {
                           </label>
                         ) : (
                           <>
-                            <div className="toggle__plus_point" />
+                            <div className="toggle__point" />
                             <p className="point__price">{titlePont}</p>
                           </>
                         )
@@ -102,7 +105,7 @@ export const ModalWindowContent = ({ modalWindowData }) => {
             <p>1</p>
             <div className="toggle__plus" />
           </div>
-          <div className="order__add add">
+          <div className="order__add add" onClick={() => openModalWindow(null, false)}>
             <p className="add-center">Add 1 to order</p>
             <p className="add-right">{`${price},00 UAH`}</p>
           </div>

@@ -60,23 +60,53 @@
     transform: rotate(45deg);
 }
 
-.toggle__plus_point {
-    width: 24px;
-    height: 24px;
-    position: relative;
-    @extend %flex-center;
+.toggle{
 
-    border-radius: 50%;
-    border: 1px solid #d3d3d3;
-
-    margin-right: 14px;
-
-    &::before {
-      @extend %toggle-point;
+    &__point {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        @extend %flex-center;
+    
+        border-radius: 50%;
+        border: 1px solid #d3d3d3;
+    
+        margin-right: 14px;
+    
+        &::before {
+          @extend %toggle-point;
+        }
+    
+        &::after {
+          @extend %toggle-point;
+          transform: rotate(90deg);
+        }
     }
 
-    &::after {
-      @extend %toggle-point;
-      transform: rotate(90deg);
+    &__close {
+        width: 46px;
+        height: 46px;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        @extend %flex-center;
+
+        border-radius: 50%;
+        background: #fff;
+        transition: transform 200ms;      
+
+        &::before {
+            @extend %toggle;
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            @extend %toggle;
+            transform: rotate(135deg);
+        }
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 }
