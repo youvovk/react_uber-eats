@@ -229,6 +229,16 @@
   }
 }
 
+.eta {
+  font-size: 14px;
+  padding: 2px 8px;
+  margin-bottom: 18px;
+
+  display: inline-block;
+  color: #000;
+  background-color: #f5f5f5;
+}
+
 @keyframes menu-hover-animation {
   0% {
     width: 0%;

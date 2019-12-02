@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './RestaurantPage.scss';
 
+const DEFAULT_ETA_RANGE = '20 - 30 min';
+
 const checkItem = (item, array) => {
   let foundItem = false;
 
@@ -17,27 +19,31 @@ const checkItem = (item, array) => {
 
 export class RestaurantPage extends Component {
   componentDidMount() {
-    const { loadRestaurant, match } = this.props;
+    const { loadRestaurant, loadRestaurants, match } = this.props;
 
+    loadRestaurants();
     loadRestaurant(match.params.id);
   }
 
   render() {
     const {
       openModalWindow,
-      restaurantData,
+      restaurantsData,
       restaurantData: {
-      categories,
-      title,
-      location,
-      sectionsMap,
-      entitiesMap,
-      heroImageUrls,
-      priceBucket,
+        categories,
+        title,
+        location,
+        sectionsMap,
+        entitiesMap,
+        heroImageUrls,
+        priceBucket,
+        uuid,
       },
     } = this.props;
     const hero = heroImageUrls && heroImageUrls[heroImageUrls.length - 1].url;
     const entitiesMapToArray = entitiesMap && Object.entries(entitiesMap);
+    const foundRestaurant = restaurantsData.find(eta => eta.uuid === uuid);
+    const foundEta = foundRestaurant ? foundRestaurant.etaRange.text : DEFAULT_ETA_RANGE;
 
     return (
       <div className="restaurant-page restaurant">
@@ -46,10 +52,19 @@ export class RestaurantPage extends Component {
             <img src={hero} alt="" className="restaurant-page__img" />
             <div className="restaurant-page__title page__title">
               <h1 className="page__title_indent title">{title}</h1>
-              <p className="page__title_indent categories">{categories && categories.join(' • ')}</p>
+              <p
+                className="page__title_indent categories"
+              >
+                {categories && categories.join(' • ')}
+              </p>
+              <p className="eta">{foundEta}</p>
               <div className="location-wrapper">
                 <p className="location">{location && `${location.address} `}</p>
-                <a href="#" className="location__info">
+                <a
+                  href="https://www.google.com.ua/maps
+                  /@50.4851493,30.4721233,14z?hl=ru"
+                  className="location__info"
+                >
                   <span className="location__dot">
                     •
                   </span>
@@ -140,7 +155,7 @@ export class RestaurantPage extends Component {
   }
 }
 
-RestaurantPage.propTypes = {
+const restaurantData = PropTypes.shape({
   categories: PropTypes.arrayOf().isRequired,
   title: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
@@ -148,8 +163,20 @@ RestaurantPage.propTypes = {
   entitiesMap: PropTypes.shape({}).isRequired,
   heroImageUrls: PropTypes.arrayOf().isRequired,
   priceBucket: PropTypes.string,
+  uuid: PropTypes.string,
+}).isRequired;
+
+RestaurantPage.propTypes = {
+  loadRestaurant: PropTypes.func.isRequired,
+  loadRestaurants: PropTypes.func.isRequired,
+  match: PropTypes.shape({}).isRequired,
+  openModalWindow: PropTypes.bool,
+  restaurantsData: PropTypes.arrayOf(),
+  restaurantData,
 };
 
 RestaurantPage.defaultProps = {
-  priceBucket: '',
+  openModalWindow: false,
+  restaurantsData: [],
+  restaurantData: [],
 };
