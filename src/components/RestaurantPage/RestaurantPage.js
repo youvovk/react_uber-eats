@@ -101,7 +101,10 @@ export class RestaurantPage extends Component {
                         .find(elem => elem[0] === itemMenu);
 
                       return (
-                        <div className="item" onClick={() => openModalWindow(foundItem[1].uuid, true)}>
+                        <div 
+                          className="item" 
+                          onClick={() => openModalWindow(foundItem[1].uuid, true)}
+                        >
                           <div className="item__left">
                             <h3 className="item__title">
                               {foundItem && foundItem[1].title}

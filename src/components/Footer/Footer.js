@@ -8,11 +8,13 @@ export const Footer = () => (
       <div className="footer__top-part">
         <div className="footer__main">
           <div className="footer__logo-container">
-            <img
-              className="footer__logo"
-              src="./images/fb.svg"
-              alt="Uber Eats"
-            />
+            <a href="/">
+              <img
+                className="footer__logo"
+                src="./images/fb.svg"
+                alt="Uber Eats"
+              />
+            </a>
 
             <Select
               name="language"

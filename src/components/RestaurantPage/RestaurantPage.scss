@@ -80,6 +80,11 @@
   }
 
   &__menu {
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    background: #fff;
+    padding-bottom: 20px;
 
     &-items {
       display: flex;
@@ -87,7 +92,7 @@
 
       &::-webkit-scrollbar { 
         width: 3px; 
-        height: 3px;
+        height: 5px;
       }
 
       &::-webkit-scrollbar-track-piece { 
