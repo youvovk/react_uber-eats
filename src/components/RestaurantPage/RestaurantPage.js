@@ -46,7 +46,7 @@ export class RestaurantPage extends Component {
             <img src={hero} alt="" className="restaurant-page__img" />
             <div className="restaurant-page__title page__title">
               <h1 className="page__title_indent title">{title}</h1>
-              <p className="page__title_indent categories">{categories}</p>
+              <p className="page__title_indent categories">{categories && categories.join(' • ')}</p>
               <div className="location-wrapper">
                 <p className="location">{location && `${location.address} `}</p>
                 <a href="#" className="location__info">
