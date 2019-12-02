@@ -109,6 +109,8 @@ export const ModalWindowContent = ({ modalWindowData, openModalWindow }) => {
           </div>
         </div>
       </div>
+
+      <div className="click-outside" onClick={() => openModalWindow(null, false)} />
     </div>
   );
 };
