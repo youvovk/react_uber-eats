@@ -4,9 +4,11 @@ import { Route } from 'react-router-dom';
 import {
   RestaurantsListPage,
 } from './components/RestaurantsListPage/index';
+
 import {
   RestaurantPage,
 } from './components/RestaurantPage/index';
+
 import { ModalWindow } from './components/ModalWindow/ModalWindow';
 
 import './App.scss';

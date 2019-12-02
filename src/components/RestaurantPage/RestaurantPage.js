@@ -58,9 +58,7 @@ export class RestaurantPage extends Component {
             </div>
           </div>
 
-          <div className="content">
-
-          </div>
+          <div className="content" />
         </div>
 
         <div className="content">
