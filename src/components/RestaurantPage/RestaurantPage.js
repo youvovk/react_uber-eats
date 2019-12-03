@@ -18,6 +18,14 @@ const checkItem = (item, array) => {
   return foundItem;
 };
 
+const checkLoaded = (arr, item) => {
+  if (arr) {
+    return arr[1][item];
+  }
+
+  return '';
+};
+
 const giveCutString = (string) => {
   const cutString = string.split(' ');
 
@@ -141,7 +149,7 @@ export class RestaurantPage extends Component {
                         >
                           <div className="item__left">
                             <h3 className="item__title">
-                              {foundItem && foundItem[1].title}
+                              {checkLoaded(foundItem, 'title')}
                             </h3>
                             <p className="item__description">
                               {foundItem && cutDescription}
@@ -149,15 +157,15 @@ export class RestaurantPage extends Component {
                             <p className="item__price">
                               {`${priceBucket.length > 2 ? priceBucket
                                 .replace(/[^0-9]/, '') : priceBucket} 
-                                ${foundItem && foundItem[1].price}`}
+                                ${checkLoaded(foundItem, 'price')}`}
                             </p>
                           </div>
 
                           <div className="item-right">
                             <img
                               className="item__img"
-                              src={foundItem && foundItem[1].imageUrl}
-                              alt=""
+                              src={checkLoaded(foundItem, 'imageUrl')}
+                              alt={checkLoaded(foundItem, 'title')}
                             />
                           </div>
                         </div>
