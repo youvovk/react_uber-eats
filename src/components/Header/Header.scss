@@ -28,6 +28,10 @@
 
     margin-left: 7vw;
 
+    @media (max-width: 1000px) {
+      margin-left: 3vw;
+    }
+
     @media (max-width: $break-point-tablet) {
       display: none;
     }
@@ -35,6 +39,7 @@
 
   &__search {
     margin-left: auto;
+    padding-left: 10px;
 
     @media (max-width: $break-point-tablet) {
       display: none;
@@ -47,6 +52,10 @@
 
     white-space: nowrap;
     color: #1f1f1f;
+
+    @media (max-width: 1000px) {
+      margin-left: 20px;
+    }
 
     &:hover {
       text-decoration: underline;

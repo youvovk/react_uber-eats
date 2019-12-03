@@ -13,9 +13,7 @@ export class Header extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({
-      [target.name]: target.value,
-    });
+    this.setState({ [target.name]: target.value });
   };
 
   toggleSearch = () => this.setState(({ isMobileSearchVisible }) => ({
@@ -63,6 +61,7 @@ export class Header extends Component {
                 value={address}
                 placeholder="Address"
                 iconUrl="./images/input.svg"
+                tablet="tablet"
               />
               <Input
                 name="time"
@@ -80,6 +79,7 @@ export class Header extends Component {
                 value={search}
                 placeholder="Search"
                 iconUrl="./images/search.svg"
+                tablet="tablet"
               />
             </div>
 

@@ -5,9 +5,7 @@ import cx from 'classnames';
 import './Input.scss';
 
 export class Input extends PureComponent {
-  state = {
-    isFocused: false,
-  };
+  state = { isFocused: false };
 
   inputRef = createRef();
 
@@ -28,11 +26,12 @@ export class Input extends PureComponent {
       className,
       isSmall,
       label,
+      tablet,
     } = this.props;
 
     const { isFocused } = this.state;
 
-    const inputWrappeClass = cx('control__input-wrapper', {
+    const inputWrappeClass = cx(`control__input-wrapper ${tablet || ''}`, {
       'control__input-wrapper--focused': isFocused,
       [className]: !!className,
     });
@@ -85,6 +84,7 @@ Input.propTypes = {
   className: PropTypes.string,
   isSmall: PropTypes.bool,
   label: PropTypes.string,
+  tablet: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -93,5 +93,6 @@ Input.defaultProps = {
   iconUrl: '',
   className: '',
   label: '',
+  tablet: '',
   isSmall: true,
 };
