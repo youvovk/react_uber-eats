@@ -91,7 +91,7 @@ export class RestaurantPage extends Component {
                 }
 
                 return (
-                  <li key={item[0]} className="menu__item">                   
+                  <li key={item[0]} className="menu__item">
                     <Link
                       activeClass="active"
                       to={item[0]}
