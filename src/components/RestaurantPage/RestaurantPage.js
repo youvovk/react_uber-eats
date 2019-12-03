@@ -26,13 +26,17 @@ const checkLoaded = (arr, item) => {
   return '';
 };
 
-const giveCutString = (string) => {
-  const cutString = string.split(' ');
+const giveCutString = (string, length) => {
+  if (string !== null) {
+    const cutString = string.split(' ');
 
-  cutString.length = 7;
-  const addedDots = `${cutString.join(' ').replace(/,$/g, '')}...`;
+    cutString.length = length;
+    const addedDots = `${cutString.join(' ').replace(/,$/g, '')}...`;
 
-  return addedDots;
+    return addedDots;
+  }
+
+  return null;
 };
 
 export class RestaurantPage extends Component {
@@ -140,7 +144,7 @@ export class RestaurantPage extends Component {
                       const foundItem = entitiesMapToArray
                         .find(elem => elem[0] === itemMenu);
 
-                      const cutDescription = giveCutString(foundItem[1].description);
+                      const cutDescription = giveCutString(foundItem[1].description, 7);
 
                       return (
                         <div 
@@ -149,14 +153,15 @@ export class RestaurantPage extends Component {
                         >
                           <div className="item__left">
                             <h3 className="item__title">
-                              {checkLoaded(foundItem, 'title')}
+                              {giveCutString(checkLoaded(foundItem, 'title'), 4)}
                             </h3>
                             <p className="item__description">
                               {foundItem && cutDescription}
                             </p>
                             <p className="item__price">
-                              {`${priceBucket.length > 2 ? priceBucket
-                                .replace(/[^0-9]/, '') : priceBucket} 
+                              {`${priceBucket.length > 1
+                                ? priceBucket[0]
+                                : priceBucket} 
                                 ${checkLoaded(foundItem, 'price')}`}
                             </p>
                           </div>
