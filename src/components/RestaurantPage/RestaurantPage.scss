@@ -221,25 +221,13 @@
   border: 1px solid #e0e0e0;
   cursor: pointer;
 
-  @media (max-width: 350px) {
-    display: block;
-
-    height: auto;
-  }
-
   &__left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     width: 50%;
-
     padding: 0 16px;
-
-    @media (max-width: 350px) {
-      width: 100%;
-      text-align: center;
-    }
   }
 
   &__title {
@@ -279,21 +267,12 @@
 
   &-right {
     display: flex;
-
-    @media (max-width: 350px) {
-      justify-content: center;
-    }
   }
 
   &__img {
     max-width: 156px;
     height: 155px;
-
     align-self: center;
-
-    @media (max-width: 350px) {
-      padding-bottom: 0.5px;
-    }
   }
 }
 
