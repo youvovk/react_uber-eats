@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-scroll';
 
 import './RestaurantPage.scss';
 
@@ -43,7 +44,9 @@ export class RestaurantPage extends Component {
     const hero = heroImageUrls && heroImageUrls[heroImageUrls.length - 1].url;
     const entitiesMapToArray = entitiesMap && Object.entries(entitiesMap);
     const foundRestaurant = restaurantsData.find(eta => eta.uuid === uuid);
-    const foundEta = foundRestaurant ? foundRestaurant.etaRange.text : DEFAULT_ETA_RANGE;
+    const foundEta = foundRestaurant
+      ? foundRestaurant.etaRange.text
+      : DEFAULT_ETA_RANGE;
 
     return (
       <div className="restaurant-page restaurant">
@@ -88,13 +91,17 @@ export class RestaurantPage extends Component {
                 }
 
                 return (
-                  <li key={item[0]} className="menu__item">
-                    <button
-                      type="button"
-                      className="menu__item-btn"
+                  <li key={item[0]} className="menu__item">                   
+                    <Link
+                      activeClass="active"
+                      to={item[0]}
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
                     >
-                      {menuTitle}
-                    </button>
+                      <p className="menu__item-btn">{menuTitle}</p>
+                    </Link>
                   </li>
                 );
               })}
@@ -108,7 +115,7 @@ export class RestaurantPage extends Component {
               }
 
               return (
-                <section className="restaurant__items items">
+                <section id={item[0]} className="restaurant__items items">
                   <h2 className="restaurant-title">{item[1].title}</h2>
                   <div className="container">
                     {item[1].itemUuids.map((itemMenu) => {
