@@ -18,12 +18,37 @@
     padding: 24px 40px 24px 98px;
 
     z-index: 1;
-
     background-color: #fff;
 
     @media (min-width: 1500px) {
       padding-left: 264px;
     }
+
+    @media (max-width: 770px) {
+      width: 500px;
+      left: 50%;
+      top: 70%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+
+      padding: 24px 100px 0 62px;
+    }
+
+    @media (max-width: 550px) {
+      width: 280px;
+      top: 60%;
+
+      text-align: left;
+      padding: 24px 20px 0 22px;
+    }
+
+    @media (max-width: 360px) {
+      top: 50%;
+    }
+
+    // @media (max-width: 600px) {
+    //   left: 8%;
+    // }
 
     &:nth-child(even),
     &:nth-child(odd) {
@@ -40,6 +65,10 @@
     line-height: 150%;
     color: #1d1d1d;
     font-weight: 500;
+
+    @media (max-width: 770px) {
+      font-size: 28px;
+    }
   }
 
   .categories {
@@ -56,6 +85,10 @@
     &-wrapper {
       display: flex;
       color: #000;
+
+      @media (max-width: 770px) {
+        display: none;
+      }
     }
 
     &__info {
@@ -67,6 +100,15 @@
       color: #000;
       margin: 0 5px;
     }
+  }
+}
+
+.hero {
+  position: relative;
+  margin-bottom: 60px;
+
+  @media (max-width: 770px) {
+    margin-bottom: 60px;
   }
 }
 
@@ -164,10 +206,8 @@
 }
 
 .container {
-  --item-width: 348px;
-
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(348px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: 40px 20px;
 }
 
@@ -178,8 +218,13 @@
   height: 158px;
 
   box-sizing: border-box;
-
   border: 1px solid #e0e0e0;
+
+  @media (max-width: 350px) {
+    display: block;
+
+    height: auto;
+  }
 
   &__left {
     display: flex;
@@ -189,6 +234,11 @@
     width: 50%;
 
     padding: 0 16px;
+
+    @media (max-width: 350px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__title {
@@ -228,6 +278,10 @@
 
   &-right {
     display: flex;
+
+    @media (max-width: 350px) {
+      justify-content: center;
+    }
   }
 
   &__img {
@@ -235,6 +289,10 @@
     height: 155px;
 
     align-self: center;
+
+    @media (max-width: 350px) {
+      padding-bottom: 0.5px;
+    }
   }
 }
 
@@ -246,6 +304,10 @@
   display: inline-block;
   color: #000;
   background-color: #f5f5f5;
+
+  @media (max-width: 770px) {
+    margin-bottom: 0;
+  }
 }
 
 @keyframes menu-hover-animation {

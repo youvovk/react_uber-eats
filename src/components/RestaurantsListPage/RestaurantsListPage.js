@@ -32,7 +32,7 @@ export class RestaurantsListPage extends Component {
     }
 
     return (
-      <div className="content">
+      <div className="content content-indent">
         <div className="restaurants-list">
           {restaurantsData.map((restaurant) => {
             const {

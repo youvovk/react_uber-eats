@@ -18,6 +18,15 @@ const checkItem = (item, array) => {
   return foundItem;
 };
 
+const giveCutString = (string) => {
+  const cutString = string.split(' ');
+
+  cutString.length = 7;
+  const addedDots = `${cutString.join(' ').replace(/,$/g, '')}...`;
+
+  return addedDots;
+};
+
 export class RestaurantPage extends Component {
   componentDidMount() {
     const { loadRestaurant, loadRestaurants, match } = this.props;
@@ -53,27 +62,28 @@ export class RestaurantPage extends Component {
         <div className="hero">
           <div className="restaurant-page__img-wrapper">
             <img src={hero} alt="" className="restaurant-page__img" />
-            <div className="restaurant-page__title page__title">
-              <h1 className="page__title_indent title">{title}</h1>
-              <p
-                className="page__title_indent categories"
+          </div>
+
+          <div className="restaurant-page__title page__title">
+            <h1 className="page__title_indent title">{title}</h1>
+            <p
+              className="page__title_indent categories"
+            >
+              {categories && categories.join(' • ')}
+            </p>
+            <p className="eta">{foundEta}</p>
+            <div className="location-wrapper">
+              <p className="location">{location && `${location.address} `}</p>
+              <a
+                href="https://www.google.com.ua/maps
+                /@50.4851493,30.4721233,14z?hl=ru"
+                className="location__info"
               >
-                {categories && categories.join(' • ')}
-              </p>
-              <p className="eta">{foundEta}</p>
-              <div className="location-wrapper">
-                <p className="location">{location && `${location.address} `}</p>
-                <a
-                  href="https://www.google.com.ua/maps
-                  /@50.4851493,30.4721233,14z?hl=ru"
-                  className="location__info"
-                >
-                  <span className="location__dot">
-                    •
-                  </span>
-                  More info
-                </a>
-              </div>
+                <span className="location__dot">
+                  •
+                </span>
+                More info
+              </a>
             </div>
           </div>
 
@@ -122,6 +132,8 @@ export class RestaurantPage extends Component {
                       const foundItem = entitiesMapToArray
                         .find(elem => elem[0] === itemMenu);
 
+                      const cutDescription = giveCutString(foundItem[1].description);
+
                       return (
                         <div 
                           className="item" 
@@ -132,7 +144,7 @@ export class RestaurantPage extends Component {
                               {foundItem && foundItem[1].title}
                             </h3>
                             <p className="item__description">
-                              {foundItem && foundItem[1].description}
+                              {foundItem && cutDescription}
                             </p>
                             <p className="item__price">
                               {`${priceBucket.length > 2 ? priceBucket

@@ -33,10 +33,6 @@ body {
   }
 }
 
-html {
-  scroll-behavior: auto;
-}
-
 input {
   border: none;
   background: transparent;
@@ -59,6 +55,10 @@ button {
   max-width: 1160px;
   padding: 0 34px;
   margin: 0 auto;
+
+  &-indent {
+    padding-top: 40px;
+  }
 
   @media (max-width: $break-point-phone) {
     padding: 0 20px;
