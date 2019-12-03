@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 
 import './ModalWindowContent.scss';
 
+const basicModalData = {
+  imageUrl: '',
+  title: '',
+  itemDescription: '',
+  price: '',
+  customizationsList: [],
+};
+
 export const ModalWindowContent = ({ modalWindowData, openModalWindow }) => {
   const { 
     imageUrl,
@@ -10,7 +18,7 @@ export const ModalWindowContent = ({ modalWindowData, openModalWindow }) => {
     itemDescription,
     price,
     customizationsList,
-  } = modalWindowData;
+  } = modalWindowData || basicModalData;
 
   return (
     <div className="modal-window__container modal-window">

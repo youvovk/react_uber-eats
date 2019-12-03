@@ -3,6 +3,10 @@
 .modal-window {
   padding: 0 10px;
 
+  @media (max-width: 440px) {
+    padding: 0;
+  }
+
   &__container {
     width: 100%;
     height: 100%;
@@ -13,15 +17,23 @@
     bottom: 0;
     z-index: 4;
     padding-top: 40px;
+
+    @media (max-width: 440px) {
+      padding-top: 0;
+    }
   }
 
   &__content {
-    width: 716px;
+    max-width: 716px;
     height: 90%;
     position: fixed;
 
     overflow-y: scroll;
     overflow-x: hidden;
+
+    // @media (max-width: 440px) {
+    //   height: 100%;
+    // }
 
     &::-webkit-scrollbar { 
       width: 5px; 
@@ -62,8 +74,6 @@
 }
 
 .menu {
-  //position: relative;
-
   &__title {
     font-weight: 500;
     font-size: 30px;
@@ -138,7 +148,11 @@
 
 .order {
   display: grid;
-  grid-template-columns: 150px minmax(205px, 485px);
+  grid-template-columns: 150px minmax(90px, 485px);
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff;
 
   padding: 24px 34px;
 
